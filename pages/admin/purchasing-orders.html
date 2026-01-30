@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Purchasing Orders - Auto Nexus Admin</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/site-title-carousel/WEBpic.jpg">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    
+    <!-- Feathericon CSS -->
+    <link rel="stylesheet" href="assets/css/feathericon.min.css">
+    
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        
+        <!-- Header -->
+        <div class="header">
+            <!-- Logo -->
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="../../assets/site-title-carousel/WEBpic.jpg" alt="Logo">
+                </a>
+                <a href="index.html" class="logo logo-small">
+                    <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+                </a>
+            </div>
+            <!-- /Logo -->
+            
+            <a href="javascript:void(0);" id="toggle_btn">
+                <i class="fe fe-text-align-left"></i>
+            </a>
+            
+            <div class="top-nav-search">
+                <form>
+                    <input type="text" class="form-control" placeholder="Search here">
+                    <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <a class="mobile_btn" id="mobile_btn">
+                <i class="fa fa-bars"></i>
+            </a>
+            <!-- /Mobile Menu Toggle -->
+            
+            <!-- Header Right Menu -->
+            <ul class="nav user-menu">
+                <!-- Notifications -->
+                <li class="nav-item dropdown noti-dropdown">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="fe fe-bell"></i> <span class="badge badge-pill">3</span>
+                    </a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span class="notification-title">Notifications</span>
+                            <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+                        </div>
+                        <div class="noti-content">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="#">
+                                        <div class="media">
+                                            <span class="avatar avatar-sm">
+                                                <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/doctors/doctor-thumb-01.jpg">
+                                            </span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">New purchase order</span> received</p>
+                                                <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!-- /Notifications -->
+                
+                <!-- User Menu -->
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/" width="31" alt="Ryan Taylor"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="user-header">
+                            <div class="avatar avatar-sm">
+                                <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+                            </div>
+                            <div class="user-text">
+                                <h6>swikriti</h6>
+                                <p class="text-muted mb-0">Administrator</p>
+                            </div>
+                        </div>
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="/Index.html">Logout</a>
+                    </div>
+                </li>
+                <!-- /User Menu -->
+            </ul>
+            <!-- /Header Right Menu -->
+        </div>
+        <!-- /Header -->
+        
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title"> 
+                            <span>Main</span>
+                        </li>
+                        <li> 
+                            <a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li> 
+                            <a href="bookings-list.html"><i class="fe fe-layout"></i> <span>Bookings</span></a>
+                        </li>
+                        <li class="active"> 
+                            <a href="purchasing-orders.html"><i class="fe fe-shopping-cart"></i> <span>Purchasing Orders</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Sidebar -->
+        
+        <!-- Page Wrapper -->
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+                
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Purchasing Orders</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Purchasing Orders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Header -->
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Purchasing Orders Table -->
+                        <div class="card card-shadow">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="datatable table table-hover table-center mb-0" id="purchasingOrdersTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Customer Name</th>
+                                                <th>Car Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>City</th>
+                                                <th>Payment Method</th>
+                                                <th>Order Date</th>
+                                                <th>Status</th>
+                                                <th class="text-right">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="ordersTableBody">
+                                            <!-- Orders will be loaded dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Purchasing Orders Table -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Wrapper -->
+    </div>
+    <!-- /Main Wrapper -->
+    
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="orderDetailsContent">
+                    <!-- Order details will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updateOrderStatus()">Update Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    
+    <!-- Bootstrap Core JS -->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    
+    <!-- Slimscroll JS -->
+    <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    
+    <!-- Datatables JS -->
+    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/plugins/datatables/datatables.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+    <script src="../../api/orders.js"></script>
+    
+    <script>
+        let currentOrderId = null;
+        let purchaseOrders = [];
+
+        // Sample data for immediate testing
+        const sampleOrders = [
+            {
+                "orderId": "PO-1738257360001",
+                "carId": 1,
+                "carName": "Deepal E07 Transformer X",
+                "carPrice": "Rs. 1,09,90,000",
+                "fullName": "John Doe",
+                "email": "john.doe@email.com",
+                "phone": "+233550746180",
+                "address": "123 Main Street, Accra",
+                "city": "Accra",
+                "paymentMethod": "bank_transfer",
+                "notes": "Interested in financing options",
+                "orderDate": "2026-01-30T19:56:00.000Z",
+                "status": "pending"
+            },
+            {
+                "orderId": "PO-1738257360002",
+                "carId": 2,
+                "carName": "Tesla Model 3",
+                "carPrice": "Rs. 45,00,000",
+                "fullName": "Jane Smith",
+                "email": "jane.smith@email.com",
+                "phone": "+233205391507",
+                "address": "456 Oak Avenue, Kumasi",
+                "city": "Kumasi",
+                "paymentMethod": "credit_card",
+                "notes": "Need delivery by next week",
+                "orderDate": "2026-01-30T18:30:00.000Z",
+                "status": "processed"
+            }
+        ];
+
+        // Load purchase orders - simplified version
+        function loadPurchaseOrders() {
+            console.log('Loading purchase orders...');
+            
+            // Try localStorage first
+            if (typeof(Storage) !== "undefined") {
+                const storedOrders = JSON.parse(localStorage.getItem('purchaseOrders') || '[]');
+                if (storedOrders.length > 0) {
+                    purchaseOrders = storedOrders;
+                    console.log('Loaded from localStorage:', purchaseOrders.length, 'orders');
+                } else {
+                    // Use sample data and save to localStorage
+                    purchaseOrders = sampleOrders;
+                    localStorage.setItem('purchaseOrders', JSON.stringify(sampleOrders));
+                    console.log('Using sample data:', purchaseOrders.length, 'orders');
+                }
+            } else {
+                // Fallback to sample data
+                purchaseOrders = sampleOrders;
+                console.log('Using sample data (no localStorage):', purchaseOrders.length, 'orders');
+            }
+            
+            renderOrders();
+        }
+
+        // Render orders in table
+        function renderOrders() {
+            console.log('Rendering orders:', purchaseOrders.length, 'items');
+            
+            if (purchaseOrders.length === 0) {
+                // If no orders, destroy existing table and show empty message
+                if ($.fn.DataTable.isDataTable('#purchasingOrdersTable')) {
+                    $('#purchasingOrdersTable').DataTable().destroy();
+                }
+                const tbody = document.getElementById('ordersTableBody');
+                tbody.innerHTML = '<tr><td colspan="10" class="text-center">No purchase orders found</td></tr>';
+                return;
+            }
+
+            // Prepare data for DataTable
+            const tableData = purchaseOrders.map((order, index) => {
+                const orderDate = new Date(order.orderDate);
+                const formattedDate = orderDate.toLocaleDateString() + ' ' + orderDate.toLocaleTimeString();
+                
+                return [
+                    order.orderId,
+                    order.fullName,
+                    order.carName,
+                    order.email,
+                    order.phone,
+                    order.city,
+                    `<span class="badge badge-info">${order.paymentMethod.replace('_', ' ').toUpperCase()}</span>`,
+                    formattedDate,
+                    `<span class="badge badge-${order.status === 'processed' ? 'success' : 'warning'}">${order.status ? order.status.charAt(0).toUpperCase() + order.status.slice(1) : 'Pending'}</span>`,
+                    `<div class="text-right">
+                        <button class="btn btn-sm btn-primary" onclick="viewOrderDetails(${index})">
+                            <i class="fe fe-eye"></i> View
+                        </button>
+                        <button class="btn btn-sm btn-success" onclick="markAsProcessed(${index})">
+                            <i class="fe fe-check"></i> Process
+                        </button>
+                    </div>`
+                ];
+            });
+
+            // Destroy existing DataTable if it exists
+            if ($.fn.DataTable.isDataTable('#purchasingOrdersTable')) {
+                $('#purchasingOrdersTable').DataTable().destroy();
+            }
+
+            // Initialize DataTable with data
+            try {
+                const dataTable = $('#purchasingOrdersTable').DataTable({
+                    data: tableData,
+                    columns: [
+                        { title: "Order ID" },
+                        { title: "Customer Name" },
+                        { title: "Car Name" },
+                        { title: "Email" },
+                        { title: "Phone" },
+                        { title: "City" },
+                        { title: "Payment Method" },
+                        { title: "Order Date" },
+                        { title: "Status" },
+                        { title: "Actions", orderable: false }
+                    ],
+                    "bFilter": false,
+                    "pageLength": 10,
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+                });
+                console.log('DataTable initialized successfully with', tableData.length, 'rows');
+            } catch (error) {
+                console.log('DataTable initialization error:', error);
+                // Fallback to manual rendering
+                const tbody = document.getElementById('ordersTableBody');
+                tbody.innerHTML = '';
+                tableData.forEach((rowData, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = rowData.map((cell, cellIndex) => {
+                        if (cellIndex === 9) { // Actions column
+                            return `<td class="text-right">${cell.replace(/<div class="text-right">|<\/div>/g, '')}</td>`;
+                        }
+                        return `<td>${cell}</td>`;
+                    }).join('');
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        // View order details
+        function viewOrderDetails(index) {
+            const order = purchaseOrders[index];
+            currentOrderId = index;
+            
+            const orderDate = new Date(order.orderDate);
+            const formattedDate = orderDate.toLocaleDateString() + ' ' + orderDate.toLocaleTimeString();
+            
+            const detailsHtml = `
+                <div class="order-details">
+                    <h6>Order Information</h6>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Order ID:</th>
+                            <td>${order.orderId}</td>
+                        </tr>
+                        <tr>
+                            <th>Order Date:</th>
+                            <td>${formattedDate}</td>
+                        </tr>
+                        <tr>
+                            <th>Car Name:</th>
+                            <td>${order.carName}</td>
+                        </tr>
+                        <tr>
+                            <th>Car Price:</th>
+                            <td><strong>${order.carPrice}</strong></td>
+                        </tr>
+                    </table>
+                    
+                    <h6 class="mt-3">Customer Information</h6>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Full Name:</th>
+                            <td>${order.fullName}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>${order.email}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone:</th>
+                            <td>${order.phone}</td>
+                        </tr>
+                        <tr>
+                            <th>Address:</th>
+                            <td>${order.address}</td>
+                        </tr>
+                        <tr>
+                            <th>City:</th>
+                            <td>${order.city}</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Method:</th>
+                            <td>${order.paymentMethod.replace('_', ' ').toUpperCase()}</td>
+                        </tr>
+                        ${order.notes ? `<tr>
+                            <th>Additional Notes:</th>
+                            <td>${order.notes}</td>
+                        </tr>` : ''}
+                    </table>
+                </div>
+            `;
+            
+            document.getElementById('orderDetailsContent').innerHTML = detailsHtml;
+            $('#orderDetailsModal').modal('show');
+        }
+
+        // Mark order as processed
+        function markAsProcessed(index) {
+            if (confirm('Mark this order as processed?')) {
+                purchaseOrders[index].status = 'processed';
+                
+                // Update localStorage
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.setItem('purchaseOrders', JSON.stringify(purchaseOrders));
+                }
+                
+                // Refresh the entire table to show updated status
+                renderOrders();
+                
+                alert('Order marked as processed successfully!');
+            }
+        }
+
+        // Update order status
+        function updateOrderStatus() {
+            if (currentOrderId !== null) {
+                markAsProcessed(currentOrderId);
+                $('#orderDetailsModal').modal('hide');
+            }
+        }
+
+        // Initialize on page load
+        $(document).ready(function() {
+            console.log('Document ready, initializing...');
+            loadPurchaseOrders();
+            
+            // Auto-refresh every 5 seconds
+            setInterval(function() {
+                console.log('Auto-refreshing orders...');
+                loadPurchaseOrders();
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

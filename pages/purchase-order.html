@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="../assets/site-title-carousel/WEBpic.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Auto Nexus - Purchase Order</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../css/all.css">
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="../css/Style.css">
+    
+    <style>
+        .purchase-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1e4ed8;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .purchase-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .car-details-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .car-details-section h2 {
+            color: #1f2d3d;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .car-image-large {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .car-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .car-info-item:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            color: #5b6b76;
+            font-weight: 600;
+        }
+        .info-value {
+            color: #1f2d3d;
+            font-weight: 600;
+        }
+        .car-price-large {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e4ed8;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .purchase-form-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .purchase-form-section h2 {
+            color: #1f2d3d;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1f2d3d;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1e4ed8;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #1e4ed8;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #1539a0;
+        }
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .purchase-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- --------------Address - Bar---------------- -->
+    <div class="contact-bar">
+        <li><i class="fa fa-compass"></i>Auto Nexus</li>
+        <li><i class="fa fa-phone"></i> +233205391507</li>
+        <li><i class="fa fa-envelope"></i>swikriti@gmail.com</li>
+        <div class="login">
+            <a href="./signup.html"><i class="fas fa-user"></i> Login/Sign Up</a>
+        </div>
+        <form onsubmit="event.preventDefault();" role="search" aria-label="search" class="nav-search">
+            <input class="search" type="search" placeholder="Search..." autofocus required />
+            <button class="search-btn" type="submit">Go</button>
+        </form>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="../Index.html" class="text-gray gradient-text">Auto Nexus</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="../Index.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./car-brands.html">Car Brands</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./buy.html">Buy</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./about.html">About Us</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="purchase-container">
+        <a href="./buy.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Car Listings
+        </a>
+
+        <div id="successMessage" class="success-message">
+            Purchase order submitted successfully! We will contact you soon.
+        </div>
+        <div id="errorMessage" class="error-message">
+            Please fill in all required fields.
+        </div>
+
+        <div class="purchase-content">
+            <!-- Car Details Section -->
+            <div class="car-details-section" id="carDetailsSection">
+                <h2>Car Details</h2>
+                <img id="carImage" src="" alt="Car Image" class="car-image-large">
+                <div class="car-info-item">
+                    <span class="info-label">Car Name:</span>
+                    <span class="info-value" id="carName">-</span>
+                </div>
+                <div class="car-info-item">
+                    <span class="info-label">Battery Capacity:</span>
+                    <span class="info-value" id="carBattery">-</span>
+                </div>
+                <div class="car-info-item">
+                    <span class="info-label">Range:</span>
+                    <span class="info-value" id="carRange">-</span>
+                </div>
+                <div class="car-info-item">
+                    <span class="info-label">Transmission:</span>
+                    <span class="info-value" id="carTransmission">-</span>
+                </div>
+                <div class="car-price-large" id="carPrice">-</div>
+            </div>
+
+            <!-- Purchase Form Section -->
+            <div class="purchase-form-section">
+                <h2>Place Purchase Order</h2>
+                <form id="purchaseForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Preferred Payment Method *</label>
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="financing">Financing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" placeholder="Any special requirements or questions..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Submit Purchase Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/Jquery3.4.1.min.js"></script>
+    <script src="../js/aos.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../api/orders.js"></script>
+
+    <script>
+        // Get car ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const carId = parseInt(urlParams.get('id'));
+
+        // Load car data from localStorage
+        let selectedCar = null;
+        if (typeof(Storage) !== "undefined") {
+            const carsData = JSON.parse(localStorage.getItem('carsData') || '[]');
+            selectedCar = carsData.find(car => car.id === carId);
+        }
+
+        // Display car details
+        if (selectedCar) {
+            document.getElementById('carImage').src = selectedCar.image;
+            document.getElementById('carName').textContent = selectedCar.name;
+            document.getElementById('carBattery').textContent = selectedCar.battery;
+            document.getElementById('carRange').textContent = selectedCar.range;
+            document.getElementById('carTransmission').textContent = selectedCar.transmission;
+            document.getElementById('carPrice').textContent = selectedCar.price;
+        } else {
+            document.getElementById('carDetailsSection').innerHTML = '<h2>Car not found</h2><p>Please go back and select a car.</p>';
+        }
+
+        // Handle form submission
+        document.getElementById('purchaseForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = {
+                carId: carId,
+                carName: selectedCar ? selectedCar.name : 'Unknown',
+                carPrice: selectedCar ? selectedCar.price : 'N/A',
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                paymentMethod: document.getElementById('paymentMethod').value,
+                notes: document.getElementById('notes').value,
+                orderDate: new Date().toISOString(),
+                orderId: 'PO-' + Date.now(),
+                status: 'pending'
+            };
+
+            // Validate form
+            if (!formData.fullName || !formData.email || !formData.phone || !formData.address || !formData.city || !formData.paymentMethod) {
+                document.getElementById('errorMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 3000);
+                return;
+            }
+
+            try {
+                // Save order using the API
+                const result = await saveOrder(formData);
+                
+                if (result.success) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('purchaseForm').reset();
+
+                    // Disable submit button
+                    document.getElementById('submitBtn').disabled = true;
+                    document.getElementById('submitBtn').textContent = 'Order Submitted!';
+
+                    // Redirect after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = './buy.html';
+                    }, 3000);
+                } else {
+                    // Show error message
+                    document.getElementById('errorMessage').textContent = result.message || 'Failed to submit order';
+                    document.getElementById('errorMessage').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('errorMessage').style.display = 'none';
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error('Error submitting order:', error);
+                document.getElementById('errorMessage').textContent = 'An error occurred while submitting your order';
+                document.getElementById('errorMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

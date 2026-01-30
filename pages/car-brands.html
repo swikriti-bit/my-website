@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="./assets/site-title-carousel/WEBpic.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Auto Nexus - Car Brands</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../css/all.css">
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="../css/aos.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../css/Style.css">
+
+    <!-- ✅ UPDATED CAR LIST STYLES ONLY -->
+    <style>
+     /* Page Layout */
+.car-brands-page {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 80px 8%;
+    background: #f4f6f8;
+}
+
+/* Card */
+.car-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px 20px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: all 0.35s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* Image */
+.car-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.car-image img {
+    max-width: 100%;
+    max-height: 170px;
+    object-fit: contain;
+}
+
+/* Text */
+.grp-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 6px;
+}
+
+.car-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.vc-buy {
+    display: inline-block;
+    padding: 10px 32px;
+    border-radius: 25px;
+    background: #111111;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.vc-buy:hover {
+    background: #333333;
+    transform: scale(1.05);
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="contact-bar ">
+    <li><i class="fa fa-compass"></i>Auto Nexus</li>
+    <li><i class="fa fa-phone"></i> +233205391507</li>
+    <li><i class="fa fa-envelope"></i>swikriti@gmail.com</li>
+    <div class="login">
+        <a href="../pages/signup.html"><i class="fas fa-user"></i> Login/Sign Up</a>
+    </div>
+    <form onsubmit="event.preventDefault();" class="nav-search">
+        <input class="search" type="search" placeholder="Search..." required />
+        <button class="search-btn" type="submit">Go</button>
+    </form>
+</div>
+
+<nav class="nav">
+    <div class="nav-menu flex-row">
+        <div class="nav-brand">
+            <a href="../Index.html" class="text-gray gradient-text">Auto Nexus</a>
+        </div>
+        <div class="toggle-collapse">
+            <div class="toggle-icons">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div>
+            <ul class="nav-items">
+                <li class="nav-link"><a href="../Index.html">Home</a></li>
+                <li class="nav-link"><a href="./car-brands.html">Car Brands</a></li>
+                <li class="nav-link"><a href="./buy.html">Buy</a></li>
+                <li class="nav-link"><a href="./about.html">About Us</a></li>
+                <li class="nav-link"><a href="./contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="social text-gray">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- 🔥 UPDATED CAR LIST SECTION ONLY -->
+<h1 class="car-h1">Car Lists</h1>
+
+<section class="car-brands-page">
+
+    <div class="car-card">
+        <div class="car-image">
+            <img src="../assets/cars/1.jpg" alt="Hyundai i10">
+        </div>
+        <h2 class="grp-text">Group A</h2>
+        <p>Hyundai i10 or smaller</p>
+        <a href="./buy.html" class="vc-buy">Buy</a>
+    </div>
+
+    <div class="car-card">
+        <div class="car-image">
+            <img src="../assets/cars/2.jpg" alt="Hyundai i10">
+        </div>
+        <h2 class="grp-text">Group A</h2>
+        <p>Hyundai i10 or smaller</p>
+        <a href="./buy.html" class="vc-buy">Buy</a>
+    </div>
+
+    <div class="car-card">
+        <div class="car-image">
+            <img src="../assets/cars/3.jpg" alt="Hyundai i10">
+        </div>
+        <h2 class="grp-text">Group A</h2>
+        <p>Hyundai i10 or smaller</p>
+        <a href="./buy.html" class="vc-buy">Buy</a>
+    </div>
+
+</section>
+
+
+<!-- FOOTER & SCRIPTS — UNCHANGED -->
+<script src="../js/Jquery3.4.1.min.js"></script>
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/aos.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/custom.js"></script>
+
+<script>
+    AOS.init({ duration: 900, once: true });
+</script>
+
+</body>
+</html>

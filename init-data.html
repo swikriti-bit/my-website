@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initialize Sample Data</title>
+</head>
+<body>
+    <h2>Initializing Sample Purchase Order Data...</h2>
+    <div id="status"></div>
+    
+    <script>
+        // Sample order data
+        const sampleOrders = [
+            {
+                "orderId": "PO-1738257360001",
+                "carId": 1,
+                "carName": "Deepal E07 Transformer X",
+                "carPrice": "Rs. 1,09,90,000",
+                "fullName": "John Doe",
+                "email": "john.doe@email.com",
+                "phone": "+233550746180",
+                "address": "123 Main Street, Accra",
+                "city": "Accra",
+                "paymentMethod": "bank_transfer",
+                "notes": "Interested in financing options",
+                "orderDate": "2026-01-30T19:56:00.000Z",
+                "status": "pending"
+            },
+            {
+                "orderId": "PO-1738257360002",
+                "carId": 2,
+                "carName": "Tesla Model 3",
+                "carPrice": "Rs. 45,00,000",
+                "fullName": "Jane Smith",
+                "email": "jane.smith@email.com",
+                "phone": "+233205391507",
+                "address": "456 Oak Avenue, Kumasi",
+                "city": "Kumasi",
+                "paymentMethod": "credit_card",
+                "notes": "Need delivery by next week",
+                "orderDate": "2026-01-30T18:30:00.000Z",
+                "status": "processed"
+            }
+        ];
+
+        // Initialize localStorage with sample data
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem('purchaseOrders', JSON.stringify(sampleOrders));
+            document.getElementById('status').innerHTML = 
+                '<p style="color: green;">✅ Sample data initialized successfully!</p>' +
+                '<p>Orders added: ' + sampleOrders.length + '</p>' +
+                '<p><a href="pages/admin/purchasing-orders.html" target="_blank">Open Admin Dashboard</a></p>';
+        } else {
+            document.getElementById('status').innerHTML = 
+                '<p style="color: red;">❌ localStorage is not supported in this browser</p>';
+        }
+    </script>
+</body>
+</html>

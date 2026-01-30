@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="../assets/site-title-carousel/WEBpic.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Auto Nexus - Buy Cars</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../css/all.css">
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="../css/aos.css">
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="../css/Style.css">
+    
+    <style>
+        .buy-page-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .buy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .buy-header h1 {
+            font-size: 2.5rem;
+            color: #1f2d3d;
+            margin: 0 0 8px 0;
+        }
+        .buy-header p {
+            color: #5b6b76;
+            font-size: 1rem;
+            margin: 0;
+        }
+        .view-all-link {
+            color: #1e4ed8;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .view-all-link:hover {
+            text-decoration: underline;
+        }
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+        .car-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .car-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .car-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+        .car-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-count {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .car-badges {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .badge-new {
+            background: #ff6b35;
+        }
+        .badge-electric {
+            background: #90ee90;
+            color: #1f2d3d;
+        }
+        .car-content {
+            padding: 18px;
+        }
+        .car-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .car-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1f2d3d;
+            margin: 0;
+            flex: 1;
+        }
+        .favorite-icon {
+            color: #ccc;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .favorite-icon:hover {
+            color: #ff6b35;
+        }
+        .car-reviews {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: #5b6b76;
+        }
+        .stars {
+            color: #ffc107;
+        }
+        .car-specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .spec-icon {
+            color: #5b6b76;
+            font-size: 1rem;
+        }
+        .spec-value {
+            font-size: 0.85rem;
+            color: #1f2d3d;
+            font-weight: 600;
+        }
+        .spec-label {
+            font-size: 0.75rem;
+            color: #5b6b76;
+        }
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2d3d;
+            margin: 0;
+        }
+        .price-type {
+            font-size: 0.85rem;
+            color: #5b6b76;
+            margin-top: 4px;
+        }
+        .scroll-indicator {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .scroll-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #1f2d3d;
+            font-size: 1.2rem;
+        }
+        .scroll-btn:hover {
+            background: #e0e0e0;
+        }
+        @media (max-width: 768px) {
+            .buy-header {
+                flex-direction: column;
+            }
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- --------------Address - Bar---------------- -->
+    <div class="contact-bar">
+        <li><i class="fa fa-compass"></i>Auto Nexus</li>
+        <li><i class="fa fa-phone"></i> +233205391507</li>
+        <li><i class="fa fa-envelope"></i>swikriti@gmail.com</li>
+        <div class="login">
+            <a href="./signup.html"><i class="fas fa-user"></i> Login/Sign Up</a>
+        </div>
+        <form onsubmit="event.preventDefault();" role="search" aria-label="search" class="nav-search">
+            <input class="search" type="search" placeholder="Search..." autofocus required />
+            <button class="search-btn" type="submit">Go</button>
+        </form>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="../Index.html" class="text-gray gradient-text">Auto Nexus</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="../Index.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./car-brands.html">Car Brands</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./buy.html">Buy</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./about.html">About Us</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="buy-page-container">
+        <div class="buy-header">
+            <div>
+                <h1>Research New Cars</h1>
+                <p>Explore recent launched cars in nepal</p>
+            </div>
+            <a href="#" class="view-all-link">
+                VIEW ALL CARS <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="cars-grid" id="carsGrid">
+            <!-- Cars will be loaded dynamically -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Welcome to Auto Nexus, your ultimate automobile marketplace for buying, selling, and renting with ease. Dive into a diverse selection that caters to all your automotive needs and hit the road with style and confidence!</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/Jquery3.4.1.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/aos.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script>
+        // Sample car data - similar to the image
+        const carsData = [
+            {
+                id: 1,
+                name: "Deepal E07 Transformer X",
+                image: "../assets/cars/1.jpg",
+                badges: ["NEW ARRIVAL", "ELECTRIC"],
+                battery: "89.98 KWh",
+                range: "566 Km/Full Charge",
+                transmission: "Automatic",
+                price: "Rs. 1,09,90,000",
+                priceType: "Showroom Price",
+                imageCount: 4,
+                reviews: 0
+            },
+            {
+                id: 2,
+                name: "BYD Dolphin",
+                image: "../assets/cars/2.jpg",
+                badges: ["ELECTRIC"],
+                battery: "45 KWh",
+                range: "340 Km/Full Charge",
+                transmission: "Automatic",
+                price: "Rs. 41,15,000",
+                priceType: "Showroom Price",
+                imageCount: 4,
+                reviews: 0
+            },
+            {
+                id: 3,
+                name: "Jaecoo J6",
+                image: "../assets/cars/3.jpg",
+                badges: ["ELECTRIC"],
+                battery: "65.69 KWh",
+                range: "400 Km/Full Charge",
+                transmission: "Automatic",
+                price: "Rs. 69,99,000",
+                priceType: "Showroom Price",
+                imageCount: 6,
+                reviews: 0
+            },
+            {
+                id: 4,
+                name: "TATA Tiago EV",
+                image: "../assets/cars/4.jpg",
+                badges: ["ELECTRIC"],
+                battery: "24 KWh",
+                range: "24 Km/Full Charge",
+                transmission: "Automatic",
+                price: "Rs. 29,99,000",
+                priceType: "Showroom Price",
+                imageCount: 6,
+                reviews: 0
+            },
+            {
+                id: 5,
+                name: "Mercedes Benz AMG",
+                image: "../assets/cars/5.jpg",
+                badges: ["NEW ARRIVAL"],
+                battery: "N/A",
+                range: "N/A",
+                transmission: "Automatic",
+                price: "Rs. 85,00,000",
+                priceType: "Showroom Price",
+                imageCount: 5,
+                reviews: 0
+            },
+            {
+                id: 6,
+                name: "Toyota Yaris Cross",
+                image: "../assets/cars/7.jpg",
+                badges: [],
+                battery: "N/A",
+                range: "N/A",
+                transmission: "Automatic",
+                price: "Rs. 45,00,000",
+                priceType: "Showroom Price",
+                imageCount: 4,
+                reviews: 0
+            }
+        ];
+
+        function renderCars() {
+            const grid = document.getElementById('carsGrid');
+            grid.innerHTML = '';
+
+            carsData.forEach(car => {
+                const card = document.createElement('a');
+                card.href = `purchase-order.html?id=${car.id}`;
+                card.className = 'car-card';
+                
+                const badgesHtml = car.badges.map(badge => {
+                    const badgeClass = badge === 'NEW ARRIVAL' ? 'badge-new' : 'badge-electric';
+                    return `<span class="badge ${badgeClass}">${badge}</span>`;
+                }).join('');
+
+                const starsHtml = '<i class="fas fa-star"></i>'.repeat(5);
+
+                card.innerHTML = `
+                    <div class="car-image-wrapper">
+                        <img src="${car.image}" alt="${car.name}">
+                        ${car.imageCount > 0 ? `<span class="image-count">${car.imageCount}</span>` : ''}
+                        <div class="car-badges">${badgesHtml}</div>
+                    </div>
+                    <div class="car-content">
+                        <div class="car-header">
+                            <h3 class="car-name">${car.name}</h3>
+                            <i class="far fa-heart favorite-icon"></i>
+                        </div>
+                        <div class="car-reviews">
+                            <span class="stars">${starsHtml}</span>
+                            <span>No reviews.</span>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-battery-half spec-icon"></i>
+                                <span class="spec-value">${car.battery}</span>
+                                <span class="spec-label">Battery</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-gas-pump spec-icon"></i>
+                                <span class="spec-value">${car.range}</span>
+                                <span class="spec-label">Range</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-cog spec-icon"></i>
+                                <span class="spec-value">${car.transmission}</span>
+                                <span class="spec-label">Transmission</span>
+                            </div>
+                        </div>
+                        <p class="car-price">${car.price}</p>
+                        <p class="price-type">${car.priceType}</p>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Store cars data in localStorage for use in purchase order page
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem('carsData', JSON.stringify(carsData));
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCars();
+        });
+    </script>
+</body>
+</html>

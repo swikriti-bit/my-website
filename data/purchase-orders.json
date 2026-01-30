@@ -1,0 +1,32 @@
+[
+  {
+    "orderId": "PO-1738257360001",
+    "carId": 1,
+    "carName": "Deepal E07 Transformer X",
+    "carPrice": "Rs. 1,09,90,000",
+    "fullName": "John Doe",
+    "email": "john.doe@email.com",
+    "phone": "+233550746180",
+    "address": "123 Main Street, Accra",
+    "city": "Accra",
+    "paymentMethod": "bank_transfer",
+    "notes": "Interested in financing options",
+    "orderDate": "2026-01-30T19:56:00.000Z",
+    "status": "pending"
+  },
+  {
+    "orderId": "PO-1738257360002",
+    "carId": 2,
+    "carName": "Tesla Model 3",
+    "carPrice": "Rs. 45,00,000",
+    "fullName": "Jane Smith",
+    "email": "jane.smith@email.com",
+    "phone": "+233205391507",
+    "address": "456 Oak Avenue, Kumasi",
+    "city": "Kumasi",
+    "paymentMethod": "credit_card",
+    "notes": "Need delivery by next week",
+    "orderDate": "2026-01-30T18:30:00.000Z",
+    "status": "processed"
+  }
+]
