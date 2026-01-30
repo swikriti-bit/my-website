@@ -22,17 +22,17 @@
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
         
-		<!-- Custom Dashboard CSS -->
+<!-- Simple Dashboard CSS -->
 		<style>
-		/* Enhanced Dashboard Styles */
+		/* Simple Dashboard Styles */
 		.main-wrapper {
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			background: #f5f5f5;
 			min-height: 100vh;
 		}
 		
 		.sidebar {
-			background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-			box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+			background: #fff;
+			border-right: 1px solid #ddd;
 		}
 		
 		.sidebar .nav-menu {
@@ -40,155 +40,127 @@
 		}
 		
 		.sidebar .nav-link {
-			color: #ecf0f1;
+			color: #333;
 			padding: 12px 20px;
 			margin: 5px 10px;
-			border-radius: 8px;
-			transition: all 0.3s ease;
-			border-left: 3px solid transparent;
+			border-radius: 4px;
+			transition: background 0.2s ease;
 		}
 		
 		.sidebar .nav-link:hover {
-			background: rgba(255,255,255,0.1);
-			border-left-color: #3498db;
-			transform: translateX(5px);
+			background: #f0f0f0;
 		}
 		
 		.sidebar .nav-link.active {
-			background: rgba(52, 152, 219, 0.2);
-			border-left-color: #3498db;
+			background: #e8e8e8;
+			color: #000;
 		}
 		
 		.page-wrapper {
-			background: #f8f9fa;
+			background: #f5f5f5;
 			padding: 20px;
 		}
 		
 		.card {
-			border: none;
-			border-radius: 15px;
-			box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			box-shadow: none;
+			transition: none;
 		}
 		
 		.card:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+			transform: none;
+			box-shadow: none;
 		}
 		
 		.card-header {
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-			color: white;
-			border-radius: 15px 15px 0 0 !important;
-			border: none;
+			background: #f9f9f9;
+			color: #333;
+			border-radius: 0;
+			border-bottom: 1px solid #ddd;
 			padding: 15px 20px;
 		}
 		
 		.card-title {
 			font-weight: 600;
 			margin: 0;
-			font-size: 1.1rem;
+			font-size: 1rem;
 		}
 		
 		.table {
-			border-radius: 10px;
-			overflow: hidden;
+			border-radius: 0;
+			overflow: visible;
 		}
 		
 		.table thead th {
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-			color: white;
-			border: none;
+			background: #f9f9f9;
+			color: #333;
+			border: 1px solid #ddd;
 			padding: 15px;
 			font-weight: 500;
 		}
 		
 		.table tbody tr {
-			transition: all 0.2s ease;
+			transition: none;
 		}
 		
 		.table tbody tr:hover {
-			background-color: rgba(102, 126, 234, 0.05);
-			transform: scale(1.01);
+			background-color: #f9f9f9;
+			transform: none;
 		}
 		
 		.table-avatar img {
-			border: 2px solid #667eea;
+			border: 1px solid #ddd;
 		}
 		
 		.status-toggle input:checked + label {
-			background-color: #27ae60;
+			background-color: #5cb85c;
 		}
 		
 		.status-toggle input + label {
-			background-color: #e74c3c;
+			background-color: #d9534f;
 		}
 		
 		.header {
-			background: white;
-			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			background: #fff;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 		}
 		
 		.header-left .logo {
 			font-size: 1.5rem;
 			font-weight: bold;
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-			-webkit-background-clip: text;
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-			color: transparent;
+			color: #333;
 		}
 		
 		.user-menu .nav-link {
-			color: #2c3e50;
-			transition: color 0.3s ease;
+			color: #333;
+			transition: color 0.2s ease;
 		}
 		
 		.user-menu .nav-link:hover {
-			color: #667eea;
+			color: #000;
 		}
 		
 		.btn {
-			border-radius: 8px;
+			border-radius: 4px;
 			padding: 8px 16px;
 			font-weight: 500;
-			transition: all 0.3s ease;
+			transition: background 0.2s ease;
 		}
 		
 		.btn:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+			transform: none;
+			box-shadow: none;
 		}
 		
 		.progress-bar {
-			border-radius: 10px;
-		}
-		
-		/* Animations */
-		@keyframes fadeInUp {
-			from {
-				opacity: 0;
-				transform: translateY(30px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-		
-		.card {
-			animation: fadeInUp 0.6s ease-out;
+			border-radius: 0;
 		}
 		
 		/* Responsive */
 		@media (max-width: 768px) {
 			.sidebar {
-				transform: translateX(-100%);
-				transition: transform 0.3s ease;
-			}
-			
-			.sidebar.show {
-				transform: translateX(0);
+				border-right: none;
 			}
 			
 			.page-wrapper {
